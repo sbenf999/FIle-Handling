@@ -1,9 +1,10 @@
+import random
+
 #MAIN_MENU=======================================================
 def get_input(string: str, valid_options: list) -> str:
     user_input = input(string)
     
-    is_number = False
-    while not is_number:    
+    while True:
         try:
             user_input = int(user_input)
 
@@ -29,12 +30,14 @@ def writeToFile(filename, data):
             
             file.write(tmp + '\n')
             
+        file.close()
+        
         return True
     
     except Exception as e:
         print(e)
         
-def openFile(filename, mode, split_=","):
+def openFile(filename, mode="r", split_=","):
     file_open = False
     while not file_open:
         try:
@@ -49,11 +52,35 @@ def openFile(filename, mode, split_=","):
         except IOError as e:
             print(f"Could not open {filename}. Error: {e}")
             filename = input("Re-enter filename: ")
-            
-def return_output(list):
-    for sub_array in list:
-        for value in sub_array:
-            print(value, end="")
+
+def test(filename):
+    test_file = openFile(filename)
+    random_keyword = test_file[random.randint(0, len(test_file-1))][0]
+    
+    return result
+
+def view_scoreboard():
+    pass
+
+def return_output(given_list):
+    lens = []
+     
+    for i in range(len(given_list)):
+        for j in range(len(given_list[i])):
+                lens.append(len(given_list[i][0]))
+
+    for i in range(len(given_list)):
+        output2 = []
+
+        for j in range(len(given_list[i])):
+                output = f"{given_list[i][j]}"
+                output2.append(output)
+
+        calc = ((max(lens)+min(lens))-len(given_list[i][0]))
+        dots = '.'*calc
+        info = f'{dots}: '.join(output2)
+
+        print(f"{info}", end="") 
         
 
 if __name__ == "__main__":
@@ -64,7 +91,7 @@ if __name__ == "__main__":
         fileNAME = input("Filename: ")
         if choice == 1:
             print()
-            return_output(openFile(fileNAME, "r"))
+            return_output(openFile(fileNAME))
             
         elif choice == 2:
             output = openFile(fileNAME, "a+")
