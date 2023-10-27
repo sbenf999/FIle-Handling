@@ -1,0 +1,4 @@
+Modulus Operator, The modulus operator (%) returns the remainder when one number (a) is divided by another (b)
+Imperative high-level language, A programming language that uses human-readable (usually ASCII) characters and explains how a program does something. Python and Java are examples of Imperative High-Level languages 
+Computational Thinking skills, Decomposition - Algorithmic Thinking - Abstraction - Generalisation - Modelling and Evaluation
+Arrays, Are of fixed type and fixed length. Values are stored contagiously in memory
